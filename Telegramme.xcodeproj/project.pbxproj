@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		872778A32372AA0400B4E9B1 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872778A22372AA0400B4E9B1 /* Content.storyboard */; };
+		872778A52372B0BE00B4E9B1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872778A42372B0BE00B4E9B1 /* Contact.swift */; };
 		87723F74237019EC00824F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F73237019EC00824F03 /* AppDelegate.swift */; };
 		87723F76237019EC00824F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F75237019EC00824F03 /* SceneDelegate.swift */; };
 		87723F78237019EC00824F03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F77237019EC00824F03 /* ViewController.swift */; };
@@ -15,8 +17,9 @@
 		87723F80237019ED00824F03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87723F7E237019ED00824F03 /* LaunchScreen.storyboard */; };
 		87723F8B237019ED00824F03 /* TelegrammeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F8A237019ED00824F03 /* TelegrammeTests.swift */; };
 		87723F96237019ED00824F03 /* TelegrammeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F95237019ED00824F03 /* TelegrammeUITests.swift */; };
-		87723FA6237022D400824F03 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87723FA5237022D400824F03 /* Content.storyboard */; };
+		87723FA6237022D400824F03 /* Content2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87723FA5237022D400824F03 /* Content2.storyboard */; };
 		87723FA82370298B00824F03 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723FA72370298B00824F03 /* AddContactViewController.swift */; };
+		87EAA6FD23791F18002AAD46 /* ShowContactViewControllerswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EAA6FC23791F18002AAD46 /* ShowContactViewControllerswift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		872778A22372AA0400B4E9B1 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
+		872778A42372B0BE00B4E9B1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		87723F70237019EC00824F03 /* Telegramme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telegramme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87723F73237019EC00824F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87723F75237019EC00824F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +56,9 @@
 		87723F91237019ED00824F03 /* TelegrammeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelegrammeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87723F95237019ED00824F03 /* TelegrammeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegrammeUITests.swift; sourceTree = "<group>"; };
 		87723F97237019ED00824F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87723FA5237022D400824F03 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
+		87723FA5237022D400824F03 /* Content2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content2.storyboard; sourceTree = "<group>"; };
 		87723FA72370298B00824F03 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		87EAA6FC23791F18002AAD46 /* ShowContactViewControllerswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactViewControllerswift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,11 @@
 		87723F72237019EC00824F03 /* Telegramme */ = {
 			isa = PBXGroup;
 			children = (
-				87723FA5237022D400824F03 /* Content.storyboard */,
+				87723FA5237022D400824F03 /* Content2.storyboard */,
+				872778A22372AA0400B4E9B1 /* Content.storyboard */,
+				872778A42372B0BE00B4E9B1 /* Contact.swift */,
 				87723FA72370298B00824F03 /* AddContactViewController.swift */,
+				87EAA6FC23791F18002AAD46 /* ShowContactViewControllerswift.swift */,
 				87723F73237019EC00824F03 /* AppDelegate.swift */,
 				87723F75237019EC00824F03 /* SceneDelegate.swift */,
 				87723F77237019EC00824F03 /* ViewController.swift */,
@@ -238,7 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87723FA6237022D400824F03 /* Content.storyboard in Resources */,
+				872778A32372AA0400B4E9B1 /* Content.storyboard in Resources */,
+				87723FA6237022D400824F03 /* Content2.storyboard in Resources */,
 				87723F80237019ED00824F03 /* LaunchScreen.storyboard in Resources */,
 				87723F7D237019ED00824F03 /* Assets.xcassets in Resources */,
 				87723F7B237019EC00824F03 /* Main.storyboard in Resources */,
@@ -268,6 +278,8 @@
 			files = (
 				87723F78237019EC00824F03 /* ViewController.swift in Sources */,
 				87723FA82370298B00824F03 /* AddContactViewController.swift in Sources */,
+				87EAA6FD23791F18002AAD46 /* ShowContactViewControllerswift.swift in Sources */,
+				872778A52372B0BE00B4E9B1 /* Contact.swift in Sources */,
 				87723F74237019EC00824F03 /* AppDelegate.swift in Sources */,
 				87723F76237019EC00824F03 /* SceneDelegate.swift in Sources */,
 			);
