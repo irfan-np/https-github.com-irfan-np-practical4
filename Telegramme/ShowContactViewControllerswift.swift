@@ -42,7 +42,7 @@ class ShowContactViewController : UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+/*    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == 0 {
             return false
         }
@@ -64,5 +64,35 @@ class ShowContactViewController : UITableViewController {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
         }
+    }
+ */
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            let alert = UIAlertController(title: "", message: "Edit list item", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.text = self.appDelegate.contactList[indexPath.row].firstName
+                })
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.text = self.appDelegate.contactList[indexPath.row].lastName
+                })
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.text = self.appDelegate.contactList[indexPath.row].mobileNo
+            })
+            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
+                self.appDelegate.contactList[indexPath.row].firstName = alert.textFields![0].text!
+                self.appDelegate.contactList[indexPath.row].lastName = alert.textFields![1].text!
+                self.appDelegate.contactList[indexPath.row].mobileNo = alert.textFields![2].text!
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: false)
+        })
+     let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+         self.appDelegate.contactList.remove(at: indexPath.row)
+         tableView.reloadData()
+     })
+        editAction.backgroundColor=UIColor.blue
+
+        return [deleteAction,editAction]
     }
 }
