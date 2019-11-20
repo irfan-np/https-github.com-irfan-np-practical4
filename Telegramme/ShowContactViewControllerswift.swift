@@ -16,6 +16,7 @@ class ShowContactViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ContactController().retrieveAllContact()
         self.tableView.reloadData() //refresh data
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
