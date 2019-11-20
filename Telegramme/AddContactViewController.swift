@@ -38,6 +38,7 @@ class AddContactViewController : UIViewController {
         
         var person:Contact
         person=Contact(firstname: String(firstNameFld.text!), lastname: String(lastNameFld.text!), mobileno: String(mobileFld.text!))
+        ContactController().AddContact(newContact:person)
         appDelegate.contactList.append(person)
         print(String(appDelegate.contactList.count))
     }

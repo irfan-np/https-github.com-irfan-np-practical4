@@ -22,9 +22,9 @@ class ContactController {
         let entity = NSEntityDescription.entity(forEntityName: "CDContact", in: context)!
         
         let person = NSManagedObject(entity: entity, insertInto: context)
-        person.setValue("Melfred", forKeyPath: "firstname")
-        person.setValue("Sawyer", forKeyPath: "lastname")
-        person.setValue("91111222", forKeyPath: "mobileno")
+        person.setValue(newContact.firstName, forKey: "firstname")
+        person.setValue(newContact.lastName, forKey: "lastname")
+        person.setValue(newContact.mobileNo, forKey: "mobileno")
         
         do {
             try context.save()
@@ -34,43 +34,90 @@ class ContactController {
     }
     
     //Retrieve all contacts from Core Data
-    func retrieveAllContact()
+    func retrieveAllContact()->[Contact]
     {
-        var people:[NSManagedObject] = []
+        var contactList:[Contact] = []
         
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDContact")
         do {
-            people = try context.fetch(fetchRequest)
+            let list:[NSManagedObject] = try context.fetch(fetchRequest)
             
-            for p in people {
-                var person:Contact
-                let firstname = p.value(forKey: "firstname") as? String
-                let lastname = p.value(forKey: "lastname") as? String
-                let mobileno = p.value(forKey: "mobileno") as? String
-                person=Contact(firstname: firstname!, lastname: lastname!, mobileno: mobileno!)
-                appDelegate.contactList.append(person)
-                print("\(firstname!) \(lastname), \(mobileno!)")
+            for p in list {
+                let firstname = p.value(forKeyPath: "firstname") as! String
+                let lastname = p.value(forKeyPath: "lastname") as! String
+                let mobileno = p.value(forKeyPath: "mobileno") as! String
+                //print("\(firstname!) \(lastname), \(mobileno!)")
+                contactList.append(Contact(firstname: firstname, lastname: lastname, mobileno: mobileno))
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+        return contactList
     }
     
     //Update current contact with new contact
     //fetch data based on mobileno
     func updateContact(mobileno:String, newContact:Contact)
     {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDContact")
+        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        do
+        {
+            let test = try context.fetch(fetchRequest)
+            
+            let objectUpdate = test[0]
+            objectUpdate.setValue(newContact.firstName, forKey: "firstname")
+            objectUpdate.setValue(newContact.lastName, forKey: "lastname")
+            objectUpdate.setValue(newContact.mobileNo, forKey: "mobileno")
+            do {
+                try context.save()
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+        catch
+        {
+            print(error)
+        }
     }
     
     //Delete contact
     //fetch data based on mobileno
     func deleteContact(mobileno:String)
     {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDContact")
+        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        do
+        {
+            let test = try context.fetch(fetchRequest)
+            
+            let objectToDelete = test[0]
+            context.delete(objectToDelete)
+            
+            do{
+                try context.save()
+            }
+            catch
+            {
+                print("Could not save. \(error)")
+            }
+        }
+        catch
+        {
+            print("Could not delete. \(error)")
+        }
     }
 }
