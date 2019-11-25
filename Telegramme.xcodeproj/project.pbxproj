@@ -18,6 +18,9 @@
 		87723F8B237019ED00824F03 /* TelegrammeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F8A237019ED00824F03 /* TelegrammeTests.swift */; };
 		87723F96237019ED00824F03 /* TelegrammeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723F95237019ED00824F03 /* TelegrammeUITests.swift */; };
 		87723FA82370298B00824F03 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87723FA72370298B00824F03 /* AddContactViewController.swift */; };
+		87A51D97238BC32F002990BD /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A51D96238BC32F002990BD /* FriendController.swift */; };
+		87A51D9D238BCCBA002990BD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A51D9C238BCCBA002990BD /* Friend.swift */; };
+		87A51D9F238BCD59002990BD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A51D9E238BCD59002990BD /* Message.swift */; };
 		87EAA6FD23791F18002AAD46 /* ShowContactViewControllerswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EAA6FC23791F18002AAD46 /* ShowContactViewControllerswift.swift */; };
 		87EAA9C12385112300399DBC /* Telegramme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87EAA9BF2385112300399DBC /* Telegramme.xcdatamodeld */; };
 		87EAA9C3238515CA00399DBC /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EAA9C2238515CA00399DBC /* ContactController.swift */; };
@@ -58,6 +61,9 @@
 		87723F95237019ED00824F03 /* TelegrammeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegrammeUITests.swift; sourceTree = "<group>"; };
 		87723F97237019ED00824F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87723FA72370298B00824F03 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		87A51D96238BC32F002990BD /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
+		87A51D9C238BCCBA002990BD /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		87A51D9E238BCD59002990BD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		87EAA6FC23791F18002AAD46 /* ShowContactViewControllerswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactViewControllerswift.swift; sourceTree = "<group>"; };
 		87EAA9C02385112300399DBC /* Telegramme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Telegramme.xcdatamodel; sourceTree = "<group>"; };
 		87EAA9C2238515CA00399DBC /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 				87EAA9BF2385112300399DBC /* Telegramme.xcdatamodeld */,
 				87723F73237019EC00824F03 /* AppDelegate.swift */,
 				87EAA9C2238515CA00399DBC /* ContactController.swift */,
+				87A51D96238BC32F002990BD /* FriendController.swift */,
+				87A51D9C238BCCBA002990BD /* Friend.swift */,
+				87A51D9E238BCD59002990BD /* Message.swift */,
 				87723F75237019EC00824F03 /* SceneDelegate.swift */,
 				87723F77237019EC00824F03 /* ViewController.swift */,
 				87723F79237019EC00824F03 /* Main.storyboard */,
@@ -284,7 +293,10 @@
 				87EAA6FD23791F18002AAD46 /* ShowContactViewControllerswift.swift in Sources */,
 				872778A52372B0BE00B4E9B1 /* Contact.swift in Sources */,
 				87723F74237019EC00824F03 /* AppDelegate.swift in Sources */,
+				87A51D9F238BCD59002990BD /* Message.swift in Sources */,
 				87EAA9C12385112300399DBC /* Telegramme.xcdatamodeld in Sources */,
+				87A51D9D238BCCBA002990BD /* Friend.swift in Sources */,
+				87A51D97238BC32F002990BD /* FriendController.swift in Sources */,
 				87723F76237019EC00824F03 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

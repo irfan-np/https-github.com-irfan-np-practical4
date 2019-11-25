@@ -83,13 +83,17 @@ class ShowContactViewController : UITableViewController {
                 self.appDelegate.contactList[indexPath.row].firstName = alert.textFields![0].text!
                 self.appDelegate.contactList[indexPath.row].lastName = alert.textFields![1].text!
                 self.appDelegate.contactList[indexPath.row].mobileNo = alert.textFields![2].text!
+                var new:Contact
+                new=Contact(firstname: alert.textFields![0].text!, lastname: alert.textFields![1].text!, mobileno: alert.textFields![2].text!)
+                ContactController().updateContact(mobileno: alert.textFields![2].text!, newContact: new)
                 self.tableView.reloadRows(at: [indexPath], with: .fade)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: false)
         })
      let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-         self.appDelegate.contactList.remove(at: indexPath.row)
+        ContactController().deleteContact(mobileno: self.appDelegate.contactList[indexPath.row].mobileNo)
+        self.appDelegate.contactList.remove(at: indexPath.row)
          tableView.reloadData()
      })
         editAction.backgroundColor=UIColor.blue

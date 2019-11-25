@@ -19,7 +19,7 @@
     </entity>
     <elements>
         <element name="CDContact" positionX="-384.32421875" positionY="-102.8515625" width="128" height="88"/>
-        <element name="CDFriend" positionX="-229.7265625" positionY="-94.80078125" width="128" height="103"/>
+        <element name="CDFriend" positionX="-215.3671875" positionY="-139.51953125" width="128" height="103"/>
         <element name="CDMessage" positionX="21.23828125" positionY="-50.2734375" width="128" height="103"/>
     </elements>
 </model>
