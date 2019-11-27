@@ -67,12 +67,12 @@ class ContactController {
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDContact")
-        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        //fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
         do
         {
             let test = try context.fetch(fetchRequest)
             
-            let objectUpdate = test[0]
+            let objectUpdate=test[0]
             objectUpdate.setValue(newContact.firstName, forKey: "firstname")
             objectUpdate.setValue(newContact.lastName, forKey: "lastname")
             objectUpdate.setValue(newContact.mobileNo, forKey: "mobileno")

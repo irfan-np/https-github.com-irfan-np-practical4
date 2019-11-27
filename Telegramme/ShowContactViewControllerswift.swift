@@ -12,16 +12,19 @@ import UIKit
 class ShowContactViewController : UITableViewController {
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var contactList:[Contact] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ContactController().retrieveAllContact()
+        contactList = ContactController().retrieveAllContact()
         self.tableView.reloadData() //refresh data
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        contactList = ContactController().retrieveAllContact()
         self.tableView.reloadData()
     }
     
@@ -30,14 +33,14 @@ class ShowContactViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appDelegate.contactList.count
+        return contactList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         
-        let contact = appDelegate.contactList[indexPath.row]
+        let contact = contactList[indexPath.row]
         cell.textLabel!.text = "\(contact.firstName) \(contact.lastName)"
         cell.detailTextLabel!.text = "\(contact.mobileNo)"
         return cell
@@ -71,18 +74,18 @@ class ShowContactViewController : UITableViewController {
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
             let alert = UIAlertController(title: "", message: "Edit list item", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
-                textField.text = self.appDelegate.contactList[indexPath.row].firstName
+                textField.text = self.contactList[indexPath.row].firstName
                 })
             alert.addTextField(configurationHandler: { (textField) in
-                textField.text = self.appDelegate.contactList[indexPath.row].lastName
+                textField.text = self.contactList[indexPath.row].lastName
                 })
             alert.addTextField(configurationHandler: { (textField) in
-                textField.text = self.appDelegate.contactList[indexPath.row].mobileNo
+                textField.text = self.contactList[indexPath.row].mobileNo
             })
             alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
-                self.appDelegate.contactList[indexPath.row].firstName = alert.textFields![0].text!
-                self.appDelegate.contactList[indexPath.row].lastName = alert.textFields![1].text!
-                self.appDelegate.contactList[indexPath.row].mobileNo = alert.textFields![2].text!
+                self.contactList[indexPath.row].firstName = alert.textFields![0].text!
+                self.contactList[indexPath.row].lastName = alert.textFields![1].text!
+                self.contactList[indexPath.row].mobileNo = alert.textFields![2].text!
                 var new:Contact
                 new=Contact(firstname: alert.textFields![0].text!, lastname: alert.textFields![1].text!, mobileno: alert.textFields![2].text!)
                 ContactController().updateContact(mobileno: alert.textFields![2].text!, newContact: new)
@@ -92,8 +95,8 @@ class ShowContactViewController : UITableViewController {
             self.present(alert, animated: false)
         })
      let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-        ContactController().deleteContact(mobileno: self.appDelegate.contactList[indexPath.row].mobileNo)
-        self.appDelegate.contactList.remove(at: indexPath.row)
+        ContactController().deleteContact(mobileno: self.contactList[indexPath.row].mobileNo)
+        self.contactList.remove(at: indexPath.row)
          tableView.reloadData()
      })
         editAction.backgroundColor=UIColor.blue
