@@ -33,14 +33,14 @@ class AddContactViewController : UIViewController {
     }
     
     @IBAction func createBtn(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print(String(appDelegate.contactList.count))
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //print(String(appDelegate.contactList.count))
         
         var person:Contact
         person=Contact(firstname: String(firstNameFld.text!), lastname: String(lastNameFld.text!), mobileno: String(mobileFld.text!))
         ContactController().AddContact(newContact:person)
-        appDelegate.contactList.append(person)
-        print(String(appDelegate.contactList.count))
+        //contactList.append(person)
+        //print(String(contactList.count))
     }
     
 }
